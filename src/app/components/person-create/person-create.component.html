@@ -1,0 +1,54 @@
+<div class="container">
+<form [formGroup]="personForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Shipping Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input matInput placeholder="Enter Person Name" formControlName="name">
+            @if (personForm.controls['name'].hasError('required')) {
+              <mat-error>Person name is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Age</mat-label>
+            <input matInput placeholder="Enter Person Age" formControlName="age">
+            @if (personForm.controls['age'].hasError('required')) {
+              <mat-error>Person Age is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Please Enter Address" formControlName="address">
+            @if (personForm.controls['address'].hasError('required')) {
+              <mat-error>Person Address is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+     
+      <div class="row">
+        <div class="col">
+          <mat-radio-group formControlName="gender">
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+</div>
